@@ -1,2 +1,3 @@
 # gemsfatri
-5 Assistentes Gemini Para Cada Departamento Agentes IA completos criados com base em todas as dores identificadas durante a consultoria. Cada Gem actua como um especialista ao lado do coordenador, 24 horas por dia.
+Estratégia Digital FATRI 2026 | eCollabs
+Diagnóstico estratégico, ferramentas digitais, Assistentes IA, melhores práticas de redes sociais e conformidade LGPD — desenvolvidos em parceria para a transformação digital da FATRI.

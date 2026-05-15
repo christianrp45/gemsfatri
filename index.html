@@ -577,14 +577,30 @@ footer strong { color: var(--text-dim); }
   position: fixed;
   top: 0; left: 0; right: 0;
   z-index: 100;
-  background: rgba(255,255,255,0.92);
+  background: rgba(255,255,255,0.96);
   backdrop-filter: blur(20px);
   border-bottom: 1px solid var(--border);
-  padding: 16px 40px;
+  padding: 10px 32px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 20px;
+  gap: 16px;
+  box-shadow: 0 1px 12px rgba(0,0,0,0.06);
+  flex-wrap: wrap;
+}
+
+.nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  background: rgba(255,255,255,0.97);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+  padding: 10px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
   box-shadow: 0 1px 12px rgba(0,0,0,0.06);
 }
 
@@ -593,33 +609,138 @@ footer strong { color: var(--text-dim); }
   font-weight: 700;
   font-size: 1.1em;
   color: var(--gold);
+  flex-shrink: 0;
 }
 
 .nav-links {
   display: flex;
-  gap: 4px;
+  gap: 2px;
   flex-wrap: wrap;
+  align-items: center;
 }
 
 .nav-link {
   text-decoration: none;
   color: var(--text-muted);
-  font-size: 0.8em;
+  font-size: 0.75em;
   font-weight: 500;
-  padding: 6px 12px;
+  padding: 5px 10px;
   border-radius: 8px;
   transition: all 0.2s;
+  white-space: nowrap;
 }
 
 .nav-link:hover { color: var(--text); background: var(--surface2); }
 
-@media(max-width: 600px) {
+/* ─── HAMBURGER ─── */
+.nav-hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  transition: all 0.2s;
+  flex-shrink: 0;
+}
+
+.nav-hamburger:hover { background: var(--surface2); }
+
+.nav-hamburger span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--text-dim);
+  border-radius: 2px;
+  transition: all 0.3s;
+}
+
+.nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* ─── MOBILE DRAWER ─── */
+.nav-drawer {
+  display: none;
+  position: fixed;
+  top: 0; right: 0;
+  width: 280px;
+  height: 100vh;
+  background: #fff;
+  z-index: 99;
+  box-shadow: -4px 0 24px rgba(0,0,0,0.12);
+  flex-direction: column;
+  padding: 80px 20px 32px;
+  gap: 4px;
+  overflow-y: auto;
+  transform: translateX(100%);
+  transition: transform 0.3s ease;
+}
+
+.nav-drawer.open {
+  transform: translateX(0);
+}
+
+.nav-drawer-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  z-index: 98;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.nav-drawer-overlay.open {
+  opacity: 1;
+}
+
+.nav-drawer-label {
+  font-size: 0.65em;
+  font-weight: 700;
+  color: var(--text-muted);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 16px 12px 6px;
+  display: block;
+}
+
+.nav-drawer a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+  border-radius: 10px;
+  text-decoration: none;
+  color: var(--text-dim);
+  font-size: 0.9em;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.nav-drawer a:hover { background: var(--surface2); color: var(--text); }
+
+.nav-drawer-divider {
+  height: 1px;
+  background: var(--border);
+  margin: 10px 0;
+}
+
+@media(max-width: 860px) {
   .nav-links { display: none; }
+  .nav-hamburger { display: flex; }
+  .nav-drawer { display: flex; }
+  .nav-drawer-overlay { display: block; }
   .hero { padding: 100px 20px 60px; }
   .dores-section, .agents-section { padding: 40px 20px; }
   .instructions-body { font-size: 0.75em; }
-  .nav { padding: 16px 20px; }
+  .nav { padding: 12px 20px; }
+  .agent-overview { grid-template-columns: 1fr !important; }
 }
+
 </style>
 </head>
 <body>
@@ -630,15 +751,18 @@ footer strong { color: var(--text-dim); }
     <img src="https://ecolabs.com.br/eCollabs%20-%20Logo.png" alt="eCollabs Logo" style="height:36px;width:auto;display:block;object-fit:contain;">
   </div>
   <div class="nav-links">
+    <span style="font-size:0.68em;font-weight:700;color:#9ca3af;letter-spacing:0.08em;text-transform:uppercase;padding:0 6px;">Agentes</span>
     <a href="#agent-1" class="nav-link">📧 LeadLovers</a>
     <a href="#agent-2" class="nav-link">🌐 WordPress</a>
     <a href="#agent-3" class="nav-link">📊 Marketing</a>
     <a href="#agent-4" class="nav-link">📱 Social Media</a>
     <a href="#agent-5" class="nav-link">🎬 Vídeo</a>
-    <a href="#ferramentas-section" class="nav-link" style="color:#2d63d4;font-weight:700;">🔧 Ferramentas</a>
-    <a href="#redes-section" class="nav-link" style="color:#c0245c;font-weight:700;">📱 Redes Sociais</a>
-    <a href="#lgpd-section" class="nav-link" style="color:#0f766e;font-weight:700;">⚖️ LGPD</a>
-    <a href="#agent-6" class="nav-link" style="color:#0f766e;">🛡️ Gem LGPD</a>
+    <a href="#agent-6" class="nav-link" style="color:#0f766e;">🛡️ LGPD</a>
+    <span style="width:1px;height:20px;background:#dde2ef;margin:0 4px;display:inline-block;"></span>
+    <span style="font-size:0.68em;font-weight:700;color:#9ca3af;letter-spacing:0.08em;text-transform:uppercase;padding:0 6px;">Conhecimento</span>
+    <a href="#ferramentas-section" class="nav-link" style="color:#2d63d4;font-weight:700;background:#eff6ff;">🔧 Ferramentas</a>
+    <a href="#redes-section" class="nav-link" style="color:#c0245c;font-weight:700;background:#fff0f6;">📱 Redes Sociais</a>
+    <a href="#lgpd-section" class="nav-link" style="color:#0f766e;font-weight:700;background:#f0fdf9;">⚖️ LGPD</a>
   </div>
 </nav>
 

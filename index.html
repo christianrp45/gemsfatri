@@ -750,21 +750,80 @@ footer strong { color: var(--text-dim); }
   <div class="nav-logo">
     <img src="https://ecolabs.com.br/eCollabs%20-%20Logo.png" alt="eCollabs Logo" style="height:36px;width:auto;display:block;object-fit:contain;">
   </div>
+
+  <!-- DESKTOP LINKS -->
   <div class="nav-links">
+    <span style="font-size:0.68em;font-weight:700;color:#9ca3af;letter-spacing:0.08em;text-transform:uppercase;padding:0 6px;">Conhecimento</span>
+    <a href="#ferramentas-section" class="nav-link" style="color:#2d63d4;font-weight:700;background:#eff6ff;">🔧 Ferramentas</a>
+    <a href="#redes-section" class="nav-link" style="color:#c0245c;font-weight:700;background:#fff0f6;">📱 Redes Sociais</a>
+    <a href="#lgpd-section" class="nav-link" style="color:#0f766e;font-weight:700;background:#f0fdf9;">⚖️ LGPD</a>
+    <span style="width:1px;height:20px;background:#dde2ef;margin:0 4px;display:inline-block;"></span>
     <span style="font-size:0.68em;font-weight:700;color:#9ca3af;letter-spacing:0.08em;text-transform:uppercase;padding:0 6px;">Agentes</span>
     <a href="#agent-1" class="nav-link">📧 LeadLovers</a>
     <a href="#agent-2" class="nav-link">🌐 WordPress</a>
     <a href="#agent-3" class="nav-link">📊 Marketing</a>
     <a href="#agent-4" class="nav-link">📱 Social Media</a>
     <a href="#agent-5" class="nav-link">🎬 Vídeo</a>
-    <a href="#agent-6" class="nav-link" style="color:#0f766e;">🛡️ LGPD</a>
-    <span style="width:1px;height:20px;background:#dde2ef;margin:0 4px;display:inline-block;"></span>
-    <span style="font-size:0.68em;font-weight:700;color:#9ca3af;letter-spacing:0.08em;text-transform:uppercase;padding:0 6px;">Conhecimento</span>
-    <a href="#ferramentas-section" class="nav-link" style="color:#2d63d4;font-weight:700;background:#eff6ff;">🔧 Ferramentas</a>
-    <a href="#redes-section" class="nav-link" style="color:#c0245c;font-weight:700;background:#fff0f6;">📱 Redes Sociais</a>
-    <a href="#lgpd-section" class="nav-link" style="color:#0f766e;font-weight:700;background:#f0fdf9;">⚖️ LGPD</a>
+    <a href="#agent-6" class="nav-link" style="color:#0f766e;">🛡️ Gem LGPD</a>
   </div>
+
+  <!-- HAMBURGER BUTTON (mobile) -->
+  <button class="nav-hamburger" id="hamburgerBtn" onclick="toggleDrawer()" aria-label="Menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
 </nav>
+
+<!-- OVERLAY -->
+<div class="nav-drawer-overlay" id="drawerOverlay" onclick="toggleDrawer()"></div>
+
+<!-- DRAWER (mobile) -->
+<div class="nav-drawer" id="navDrawer">
+
+  <span class="nav-drawer-label">📚 Base de Conhecimento</span>
+  <a href="#ferramentas-section" onclick="toggleDrawer()">
+    <span style="background:#eff6ff;color:#2d63d4;width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1em;flex-shrink:0;">🔧</span>
+    <span>Ferramentas Digitais</span>
+  </a>
+  <a href="#redes-section" onclick="toggleDrawer()">
+    <span style="background:#fff0f6;color:#c0245c;width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1em;flex-shrink:0;">📱</span>
+    <span>Redes Sociais</span>
+  </a>
+  <a href="#lgpd-section" onclick="toggleDrawer()">
+    <span style="background:#f0fdf9;color:#0f766e;width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1em;flex-shrink:0;">⚖️</span>
+    <span>LGPD — Guia Completo</span>
+  </a>
+
+  <div class="nav-drawer-divider"></div>
+
+  <span class="nav-drawer-label">🤖 Agentes Gemini</span>
+  <a href="#agent-1" onclick="toggleDrawer()">
+    <span style="background:rgba(160,114,10,0.1);color:#a0720a;width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1em;flex-shrink:0;">📧</span>
+    <span>Assistente LeadLovers</span>
+  </a>
+  <a href="#agent-2" onclick="toggleDrawer()">
+    <span style="background:rgba(45,99,212,0.1);color:#2d63d4;width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1em;flex-shrink:0;">🌐</span>
+    <span>Assistente WordPress</span>
+  </a>
+  <a href="#agent-3" onclick="toggleDrawer()">
+    <span style="background:rgba(26,138,69,0.1);color:#1a8a45;width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1em;flex-shrink:0;">📊</span>
+    <span>Assistente Marketing</span>
+  </a>
+  <a href="#agent-4" onclick="toggleDrawer()">
+    <span style="background:rgba(192,36,92,0.1);color:#c0245c;width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1em;flex-shrink:0;">📱</span>
+    <span>Assistente Social Media</span>
+  </a>
+  <a href="#agent-5" onclick="toggleDrawer()">
+    <span style="background:rgba(106,58,192,0.1);color:#6a3ac0;width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1em;flex-shrink:0;">🎬</span>
+    <span>Assistente Vídeo</span>
+  </a>
+  <a href="#agent-6" onclick="toggleDrawer()">
+    <span style="background:rgba(15,118,110,0.1);color:#0f766e;width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1em;flex-shrink:0;">🛡️</span>
+    <span>Assistente LGPD</span>
+  </a>
+
+</div>
 
 <!-- HERO -->
 <section class="hero" style="padding-top: 100px;">
@@ -3639,6 +3698,16 @@ FIM DAS INSTRUÇÕES — AGENTE 06 LGPD
 </footer>
 
 <script>
+function toggleDrawer() {
+  const btn = document.getElementById('hamburgerBtn');
+  const drawer = document.getElementById('navDrawer');
+  const overlay = document.getElementById('drawerOverlay');
+  btn.classList.toggle('open');
+  drawer.classList.toggle('open');
+  overlay.classList.toggle('open');
+  document.body.style.overflow = drawer.classList.contains('open') ? 'hidden' : '';
+}
+
 function copyInstructions(id, btn) {
   const el = document.getElementById(id);
   const text = el.innerText;

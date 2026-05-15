@@ -782,6 +782,10 @@ footer strong { color: var(--text-dim); }
 <div class="nav-drawer" id="navDrawer">
 
   <span class="nav-drawer-label">📚 Base de Conhecimento</span>
+  <a href="#diagnostico-section" onclick="toggleDrawer()">
+    <span style="background:#fdfaf5;color:#a0720a;width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1em;flex-shrink:0;">📐</span>
+    <span>Diagnóstico Estratégico</span>
+  </a>
   <a href="#ferramentas-section" onclick="toggleDrawer()">
     <span style="background:#eff6ff;color:#2d63d4;width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1em;flex-shrink:0;">🔧</span>
     <span>Ferramentas Digitais</span>
@@ -797,39 +801,94 @@ footer strong { color: var(--text-dim); }
 
   <div class="nav-drawer-divider"></div>
 
-  <span class="nav-drawer-label">🤖 Agentes Gemini</span>
+  <span class="nav-drawer-label">🤖 Assistentes IA</span>
   <a href="#agent-1" onclick="toggleDrawer()">
     <span style="background:rgba(160,114,10,0.1);color:#a0720a;width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1em;flex-shrink:0;">📧</span>
-    <span>Assistente LeadLovers</span>
+    <span>LeadLovers</span>
   </a>
   <a href="#agent-2" onclick="toggleDrawer()">
     <span style="background:rgba(45,99,212,0.1);color:#2d63d4;width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1em;flex-shrink:0;">🌐</span>
-    <span>Assistente WordPress</span>
+    <span>WordPress</span>
   </a>
   <a href="#agent-3" onclick="toggleDrawer()">
     <span style="background:rgba(26,138,69,0.1);color:#1a8a45;width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1em;flex-shrink:0;">📊</span>
-    <span>Assistente Marketing</span>
+    <span>Marketing</span>
   </a>
   <a href="#agent-4" onclick="toggleDrawer()">
     <span style="background:rgba(192,36,92,0.1);color:#c0245c;width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1em;flex-shrink:0;">📱</span>
-    <span>Assistente Social Media</span>
+    <span>Social Media</span>
   </a>
   <a href="#agent-5" onclick="toggleDrawer()">
     <span style="background:rgba(106,58,192,0.1);color:#6a3ac0;width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1em;flex-shrink:0;">🎬</span>
-    <span>Assistente Vídeo</span>
+    <span>Vídeo</span>
   </a>
   <a href="#agent-6" onclick="toggleDrawer()">
     <span style="background:rgba(15,118,110,0.1);color:#0f766e;width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1em;flex-shrink:0;">🛡️</span>
-    <span>Assistente LGPD</span>
+    <span>LGPD</span>
   </a>
 
 </div>
 
 <!-- HERO -->
 <section class="hero" style="padding-top: 100px;">
-  <div class="hero-badge">⬡ Google Gemini Gems · FATRI 2026</div>
-  <h1>5 Assistentes Gemini<br><span>Para Cada Departamento</span></h1>
-  <p>Agentes IA completos criados com base em todas as dores identificadas durante a consultoria. Cada Gem actua como um especialista ao lado do coordenador, 24 horas por dia.</p>
+
+  <div class="hero-badge">⬡ eCollabs × FATRI · Consultoria 2026</div>
+
+  <h1>Estratégia Digital<br><span>Construída em Parceria</span></h1>
+
+  <p style="font-size:1.1em;color:var(--text-dim);max-width:680px;margin-bottom:16px;line-height:1.8;">
+    Uma semana de escuta, análise e co-criação com cada área da organização. O resultado é este mapa — diagnóstico, estratégia, boas práticas e ferramentas para que cada coordenador cresça com confiança e clareza.
+  </p>
+
+  <p style="font-size:0.9em;color:var(--text-muted);max-width:560px;margin-bottom:40px;line-height:1.7;font-style:italic;">
+    "Não existe tecnologia que substitua o olhar humano sobre uma organização. Existe tecnologia que amplifica o que bons profissionais constroem juntos."
+  </p>
+
+  <!-- Chips de navegação -->
+  <div class="hero-agents">
+    <a href="#diagnostico-section" class="hero-agent-chip" style="border-color:rgba(160,114,10,0.3);background:#fdfaf5;">
+      <span class="dot" style="background:#a0720a"></span> Diagnóstico Estratégico
+    </a>
+    <a href="#ferramentas-section" class="hero-agent-chip" style="border-color:rgba(45,99,212,0.3);background:#f5f8ff;">
+      <span class="dot" style="background:#2d63d4"></span> Ferramentas Digitais
+    </a>
+    <a href="#redes-section" class="hero-agent-chip" style="border-color:rgba(192,36,92,0.3);background:#fff5f8;">
+      <span class="dot" style="background:#c0245c"></span> Redes Sociais
+    </a>
+    <a href="#lgpd-section" class="hero-agent-chip" style="border-color:rgba(15,118,110,0.3);background:#f5fdfb;">
+      <span class="dot" style="background:#0f766e"></span> LGPD
+    </a>
+    <a href="#agent-1" class="hero-agent-chip">
+      <span class="dot" style="background:#6a3ac0"></span> Assistentes IA
+    </a>
+  </div>
+
+  <!-- Stats bar -->
+  <div style="display:flex;gap:0;border:1px solid var(--border);border-radius:16px;overflow:hidden;background:#fff;box-shadow:0 2px 12px rgba(0,0,0,0.05);max-width:700px;width:100%;">
+    <div style="flex:1;padding:20px 16px;text-align:center;border-right:1px solid var(--border);">
+      <div style="font-family:'DM Mono',monospace;font-size:1.6em;font-weight:700;color:#a0720a;">6</div>
+      <div style="font-size:0.75em;color:var(--text-muted);margin-top:4px;">Áreas<br>Assistidas</div>
+    </div>
+    <div style="flex:1;padding:20px 16px;text-align:center;border-right:1px solid var(--border);">
+      <div style="font-family:'DM Mono',monospace;font-size:1.6em;font-weight:700;color:#2d63d4;">12</div>
+      <div style="font-size:0.75em;color:var(--text-muted);margin-top:4px;">Frentes<br>Mapeadas</div>
+    </div>
+    <div style="flex:1;padding:20px 16px;text-align:center;border-right:1px solid var(--border);">
+      <div style="font-family:'DM Mono',monospace;font-size:1.6em;font-weight:700;color:#1a8a45;">R$0</div>
+      <div style="font-size:0.75em;color:var(--text-muted);margin-top:4px;">Tecnologia<br>Nova Necessária</div>
+    </div>
+    <div style="flex:1;padding:20px 16px;text-align:center;border-right:1px solid var(--border);">
+      <div style="font-family:'DM Mono',monospace;font-size:1.6em;font-weight:700;color:#c0245c;">24h</div>
+      <div style="font-size:0.75em;color:var(--text-muted);margin-top:4px;">Assistentes<br>Disponíveis</div>
+    </div>
+    <div style="flex:1;padding:20px 16px;text-align:center;">
+      <div style="font-family:'DM Mono',monospace;font-size:1.6em;font-weight:700;color:#6a3ac0;">∞</div>
+      <div style="font-size:0.75em;color:var(--text-muted);margin-top:4px;">Potencial<br>de Crescimento</div>
+    </div>
+  </div>
+
+  <div class="hero-scroll">▼ Explore o material</div>
+</section>
 
   <div class="hero-agents">
     <a href="#agent-1" class="hero-agent-chip">
@@ -852,48 +911,71 @@ footer strong { color: var(--text-dim); }
   <div class="hero-scroll">▼ Role para ver os agentes</div>
 </section>
 
-<!-- DORES -->
-<section class="dores-section">
-  <div class="section-label">Base de conhecimento</div>
-  <h2 class="section-title">As Dores que Estes Agentes Resolvem</h2>
-  <p class="section-sub">Identificadas em 40 atendimentos, 60+ pessoas, 12 áreas durante a semana de consultoria FATRI.</p>
+<!-- DIAGNÓSTICO -->
+<section class="dores-section" id="diagnostico-section">
+  <div class="section-label">Mapeamento Estratégico · FATRI 2026</div>
+  <h2 class="section-title">Os 6 Pilares de Transformação Digital</h2>
+  <p class="section-sub">Análise conduzida com múltiplas áreas da organização, identificando os principais vetores de crescimento e oportunidades de impacto imediato — base para o desenvolvimento dos Assistentes Gemini.</p>
 
   <div class="dores-grid">
     <div class="dor-card">
       <div class="dor-icon">⚙️</div>
-      <div class="dor-title">Falta de sistema/processo</div>
+      <div class="dor-title">Sistematização e Escala</div>
       <div class="dor-pct">95%</div>
-      <div class="dor-desc">dos atendimentos revelaram trabalho 100% manual, improvisado e não documentado</div>
+      <div class="dor-desc">das áreas apresentam oportunidade de estruturação de processos e ganho expressivo de escalabilidade operacional</div>
     </div>
     <div class="dor-card">
-      <div class="dor-icon">📭</div>
-      <div class="dor-title">Leads dormindo sem conversão</div>
+      <div class="dor-icon">📬</div>
+      <div class="dor-title">Conversão de Base de Contatos</div>
       <div class="dor-pct">90%</div>
-      <div class="dor-desc">dos departamentos têm base de emails e contatos que nunca são trabalhados</div>
+      <div class="dor-desc">das bases de leads existentes possuem potencial de monetização ainda não ativado ou adequadamente nutrido</div>
     </div>
     <div class="dor-card">
       <div class="dor-icon">✍️</div>
-      <div class="dor-title">Copy foca em features, não benefícios</div>
+      <div class="dor-title">Comunicação por Benefício</div>
       <div class="dor-pct">85%</div>
-      <div class="dor-desc">dos textos são técnicos demais, sem emoção, sem urgência, sem CTA claro</div>
+      <div class="dor-desc">das mensagens e páginas têm oportunidade de reposicionamento para maior ressonância com o público e conversão</div>
     </div>
     <div class="dor-card">
       <div class="dor-icon">📊</div>
-      <div class="dor-title">Sem dados nem métricas</div>
+      <div class="dor-title">Decisões Baseadas em Dados</div>
       <div class="dor-pct">88%</div>
-      <div class="dor-desc">decisões baseadas em achismo — ninguém sabe o que funciona ou o que falha</div>
+      <div class="dor-desc">das áreas têm oportunidade de implementar análise estruturada para decisões mais assertivas e mensuráveis</div>
     </div>
     <div class="dor-card">
       <div class="dor-icon">📢</div>
-      <div class="dor-title">Sem conteúdo de atração</div>
+      <div class="dor-title">Construção de Audiência Própria</div>
       <div class="dor-pct">92%</div>
-      <div class="dor-desc">zero tráfego orgânico, total dependência de indicações e anúncios pagos</div>
+      <div class="dor-desc">das áreas têm oportunidade de desenvolver canais de atração orgânica e reduzir dependência de indicações</div>
     </div>
     <div class="dor-card">
       <div class="dor-icon">🤖</div>
-      <div class="dor-title">Sem automação inteligente</div>
+      <div class="dor-title">Automatização com Inteligência</div>
       <div class="dor-pct">95%</div>
-      <div class="dor-desc">equipes sobrecarregadas fazendo manualmente o que poderia ser guiado por IA</div>
+      <div class="dor-desc">dos processos operacionais têm potencial de ganho significativo com soluções de IA aplicada e automação guiada</div>
+    </div>
+  </div>
+
+  <div style="margin-top:48px;background:linear-gradient(135deg,#1e293b,#334155);border-radius:20px;padding:36px 40px;display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:28px;text-align:center;">
+    <div>
+      <div style="font-family:'DM Mono',monospace;font-size:2.4em;font-weight:700;color:#f0d080;line-height:1;">6</div>
+      <div style="color:#94a3b8;font-size:0.85em;margin-top:6px;">Assistentes Gemini<br>desenvolvidos</div>
+    </div>
+    <div>
+      <div style="font-family:'DM Mono',monospace;font-size:2.4em;font-weight:700;color:#7dd3fc;line-height:1;">12</div>
+      <div style="color:#94a3b8;font-size:0.85em;margin-top:6px;">Áreas da organização<br>mapeadas</div>
+    </div>
+    <div>
+      <div style="font-family:'DM Mono',monospace;font-size:2.4em;font-weight:700;color:#86efac;line-height:1;">100%</div>
+      <div style="color:#94a3b8;font-size:0.85em;margin-top:6px;">Ferramentas já<br>disponíveis na org.</div>
+    </div>
+    <div>
+      <div style="font-family:'DM Mono',monospace;font-size:2.4em;font-weight:700;color:#f9a8d4;line-height:1;">R$0</div>
+      <div style="color:#94a3b8;font-size:0.85em;margin-top:6px;">Investimento adicional<br>em tecnologia</div>
+    </div>
+    <div>
+      <div style="font-family:'DM Mono',monospace;font-size:2.4em;font-weight:700;color:#c4b5fd;line-height:1;">24h</div>
+      <div style="color:#94a3b8;font-size:0.85em;margin-top:6px;">Disponibilidade de<br>cada Assistente</div>
     </div>
   </div>
 </section>
@@ -3692,10 +3774,9 @@ FIM DAS INSTRUÇÕES — AGENTE 06 LGPD
 
 <footer>
   <img src="https://ecolabs.com.br/eCollabs%20-%20Logo.png" alt="eCollabs" style="height:40px;width:auto;margin-bottom:16px;opacity:0.7;">
-  <p style="margin-bottom:8px; font-family:'Playfair Display',serif; font-size:1.2em; color:var(--text-dim)">6 Agentes Gemini · FATRI 2026</p>
-  <p>Criado com base nas dores identificadas em <strong>40 atendimentos · 30+ pessoas · 12 áreas</strong></p>
-  <p style="margin-top:8px">Consultoria Marketing e Presença Digital · Christian Rodrigues (62)98154 - 9005</p>
-  <p style="margin-top:8px">eColabs Desenvolvimento de Pessoas e Organizações LTDA - 43.694.779/0001-03  · Maio 2026</p>
+  <p style="margin-bottom:8px; font-family:'Playfair Display',serif; font-size:1.2em; color:var(--text-dim)">Assistentes Gemini · FATRI 2026</p>
+  <p>Solução de Inteligência Artificial aplicada à transformação digital organizacional</p>
+  <p style="margin-top:8px">Desenvolvido por <strong>eCollabs</strong> · Consultoria Digital · Christian Queiros · 2026</p>
 </footer>
 
 <script>

@@ -772,7 +772,163 @@ footer strong { color: var(--text-dim); }
 }
 
 
-/* ─── BOTÃO FLUTUANTE VOLTAR AO TOPO ─── */
+/* ─── MODAL DE INSTRUÇÕES DO GEM ─── */
+.gem-modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 500;
+  background: rgba(0,0,0,0.6);
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  backdrop-filter: blur(4px);
+}
+
+.gem-modal-overlay.open {
+  display: flex;
+}
+
+.gem-modal {
+  background: #fff;
+  width: 100%;
+  max-width: 860px;
+  max-height: 90vh;
+  border-radius: 20px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 24px 80px rgba(0,0,0,0.25);
+  animation: modalIn 0.3s ease;
+}
+
+@keyframes modalIn {
+  from { opacity:0; transform: translateY(20px) scale(0.97); }
+  to   { opacity:1; transform: translateY(0) scale(1); }
+}
+
+.gem-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 28px;
+  border-bottom: 1px solid var(--border);
+  background: var(--surface2);
+  flex-shrink: 0;
+  gap: 16px;
+}
+
+.gem-modal-title {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: 1.1em;
+  color: var(--text);
+}
+
+.gem-modal-actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.gem-modal-body {
+  overflow-y: auto;
+  flex: 1;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.82em;
+  line-height: 1.9;
+  color: #334155;
+  white-space: pre-wrap;
+  word-break: break-word;
+  padding: 32px 28px;
+  background: #f8faff;
+}
+
+.gem-modal-body::-webkit-scrollbar { width: 6px; }
+.gem-modal-body::-webkit-scrollbar-track { background: transparent; }
+.gem-modal-body::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 3px; }
+
+.gem-modal-close {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text-dim);
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.82em;
+  font-weight: 600;
+  font-family: 'DM Sans', sans-serif;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.gem-modal-close:hover {
+  background: #fee2e2;
+  color: #991b1b;
+  border-color: #fecaca;
+}
+
+.gem-modal-copy {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text-dim);
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.82em;
+  font-weight: 600;
+  font-family: 'DM Sans', sans-serif;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.gem-modal-copy:hover {
+  background: var(--surface2);
+  color: var(--text);
+}
+
+.gem-modal-copy.copied {
+  background: rgba(26,138,69,0.08);
+  border-color: rgba(26,138,69,0.3);
+  color: #1a8a45;
+}
+
+/* Botão "Ver instruções" em cada card */
+.btn-ver-instrucoes {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 11px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: var(--surface2);
+  color: var(--text-dim);
+  font-size: 0.82em;
+  font-weight: 600;
+  font-family: 'DM Sans', sans-serif;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-bottom: 8px;
+}
+
+.btn-ver-instrucoes:hover {
+  background: #f0f0ff;
+  border-color: #a0a0d0;
+  color: var(--text);
+}
+
+@media(max-width: 600px) {
+  .gem-modal { max-height: 95vh; border-radius: 16px; }
+  .gem-modal-body { font-size: 0.75em; padding: 20px 16px; }
+  .gem-modal-header { padding: 16px 20px; }
+}
 .fab-top {
   position: fixed;
   bottom: 32px;
@@ -1181,8 +1337,8 @@ footer strong { color: var(--text-dim); }
   </div>
 </section>
 
-<!-- ════ AGENTES ════ -->
-<section class="agents-section">
+<!-- ════ AGENTES — CONTEÚDO OCULTO (acessível via modal) ════ -->
+<section class="agents-section" id="agents-hidden-section" style="display:none;">
 
   <!-- ── AGENTE 1 ── -->
   <div class="agent-block accent-1" id="agent-1">
@@ -3120,6 +3276,7 @@ FIM DAS INSTRUÇÕES — AGENTE 05 VÍDEO
     </div>
   </div>
   <div style="padding:0 24px 20px;">
+    <button class="btn-ver-instrucoes" onclick="openGemModal('inst1','📧 Assistente LeadLovers')">📋 Ver instruções completas do Gem</button>
     <a href="https://gemini.google.com/gem/ef1a77e4e620" target="_blank" style="display:block;text-align:center;background:#a0720a;color:#fff;font-weight:700;padding:12px;border-radius:12px;text-decoration:none;font-size:0.9em;transition:all 0.2s;" onmouseover="this.style.background='#8a6008'" onmouseout="this.style.background='#a0720a'">Abrir Assistente LeadLovers →</a>
   </div>
 </div>
@@ -3145,6 +3302,7 @@ FIM DAS INSTRUÇÕES — AGENTE 05 VÍDEO
     </div>
   </div>
   <div style="padding:0 24px 20px;">
+    <button class="btn-ver-instrucoes" onclick="openGemModal('inst2','🌐 Assistente WordPress')">📋 Ver instruções completas do Gem</button>
     <a href="https://gemini.google.com/gem/a31039e09759" target="_blank" style="display:block;text-align:center;background:#2d63d4;color:#fff;font-weight:700;padding:12px;border-radius:12px;text-decoration:none;font-size:0.9em;transition:all 0.2s;" onmouseover="this.style.background='#1a4fa8'" onmouseout="this.style.background='#2d63d4'">Abrir Assistente WordPress →</a>
   </div>
 </div>
@@ -3170,6 +3328,7 @@ FIM DAS INSTRUÇÕES — AGENTE 05 VÍDEO
     </div>
   </div>
   <div style="padding:0 24px 20px;">
+    <button class="btn-ver-instrucoes" onclick="openGemModal('inst3','📊 Assistente Marketing')">📋 Ver instruções completas do Gem</button>
     <a href="https://gemini.google.com/gem/5c8d665f260a" target="_blank" style="display:block;text-align:center;background:#1a8a45;color:#fff;font-weight:700;padding:12px;border-radius:12px;text-decoration:none;font-size:0.9em;transition:all 0.2s;" onmouseover="this.style.background='#126632'" onmouseout="this.style.background='#1a8a45'">Abrir Assistente Marketing →</a>
   </div>
 </div>
@@ -3195,6 +3354,7 @@ FIM DAS INSTRUÇÕES — AGENTE 05 VÍDEO
     </div>
   </div>
   <div style="padding:0 24px 20px;">
+    <button class="btn-ver-instrucoes" onclick="openGemModal('inst4','📱 Assistente Social Media')">📋 Ver instruções completas do Gem</button>
     <a href="https://gemini.google.com/gem/eb5f7a3026fc" target="_blank" style="display:block;text-align:center;background:#c0245c;color:#fff;font-weight:700;padding:12px;border-radius:12px;text-decoration:none;font-size:0.9em;transition:all 0.2s;" onmouseover="this.style.background='#960e46'" onmouseout="this.style.background='#c0245c'">Abrir Assistente Social Media →</a>
   </div>
 </div>
@@ -3220,6 +3380,7 @@ FIM DAS INSTRUÇÕES — AGENTE 05 VÍDEO
     </div>
   </div>
   <div style="padding:0 24px 20px;">
+    <button class="btn-ver-instrucoes" onclick="openGemModal('inst5','🎬 Assistente de Vídeo')">📋 Ver instruções completas do Gem</button>
     <a href="https://gemini.google.com/gem/5d6379c7a3d9" target="_blank" style="display:block;text-align:center;background:#6a3ac0;color:#fff;font-weight:700;padding:12px;border-radius:12px;text-decoration:none;font-size:0.9em;transition:all 0.2s;" onmouseover="this.style.background='#4c1d95'" onmouseout="this.style.background='#6a3ac0'">Abrir Assistente de Vídeo →</a>
   </div>
 </div>
@@ -3245,6 +3406,7 @@ FIM DAS INSTRUÇÕES — AGENTE 05 VÍDEO
     </div>
   </div>
   <div style="padding:0 24px 20px;">
+    <button class="btn-ver-instrucoes" onclick="openGemModal('inst6','🛡️ Assistente LGPD')">📋 Ver instruções completas do Gem</button>
     <a href="https://gemini.google.com/gem/2e0ceae68598" target="_blank" style="display:block;text-align:center;background:#0f766e;color:#fff;font-weight:700;padding:12px;border-radius:12px;text-decoration:none;font-size:0.9em;transition:all 0.2s;" onmouseover="this.style.background='#065f46'" onmouseout="this.style.background='#0f766e'">Abrir Assistente LGPD →</a>
   </div>
 </div>
@@ -3869,8 +4031,8 @@ FIM DAS INSTRUÇÕES — AGENTE 05 VÍDEO
 </div>
 </section>
 
-<!-- ════ AGENTE 6 LGPD ════ -->
-<section class="agents-section" style="background:#f0fdf9;border-top:1px solid #d1fae5;">
+<!-- ════ AGENTE 6 LGPD — CONTEÚDO OCULTO (acessível via modal) ════ -->
+<section class="agents-section" id="agent6-hidden-section" style="display:none;background:#f0fdf9;border-top:1px solid #d1fae5;">
 <div id="agent-6" class="agent-block accent-6" style="--a6:#0f766e;scroll-margin-top:80px;">
     <div class="agent-id">AGENTE 06 · BASE DE TODOS OS DEPARTAMENTOS</div>
     <div class="agent-title-row">
@@ -4172,6 +4334,20 @@ FIM DAS INSTRUÇÕES — AGENTE 06 LGPD
   <p style="margin-top:8px">Desenvolvido por <strong>eCollabs</strong> · Consultoria Digital · Christian Queiros · 2026</p>
 </footer>
 
+<!-- ════ MODAL INSTRUÇÕES GEM ════ -->
+<div class="gem-modal-overlay" id="gemModal" onclick="if(event.target===this)closeGemModal()">
+  <div class="gem-modal">
+    <div class="gem-modal-header">
+      <div class="gem-modal-title" id="gemModalTitle">Instruções do Gem</div>
+      <div class="gem-modal-actions">
+        <button class="gem-modal-copy" id="gemModalCopyBtn" onclick="copyGemModal()">📋 Copiar instrução</button>
+        <button class="gem-modal-close" onclick="closeGemModal()">✕ Fechar</button>
+      </div>
+    </div>
+    <div class="gem-modal-body" id="gemModalBody"></div>
+  </div>
+</div>
+
 <!-- ════ BOTÃO FLUTUANTE ════ -->
 <div class="fab-top" id="fabTop">
 
@@ -4227,6 +4403,41 @@ FIM DAS INSTRUÇÕES — AGENTE 06 LGPD
 </div>
 
 <script>
+// ─── MODAL DE INSTRUÇÕES DO GEM ───
+function openGemModal(instId, title) {
+  const pre = document.getElementById(instId);
+  const modal = document.getElementById('gemModal');
+  const body = document.getElementById('gemModalBody');
+  const titleEl = document.getElementById('gemModalTitle');
+  const copyBtn = document.getElementById('gemModalCopyBtn');
+
+  titleEl.textContent = title + ' — Instruções do Gem';
+  body.textContent = pre ? pre.innerText : 'Conteúdo não encontrado.';
+  copyBtn.textContent = '📋 Copiar instrução';
+  copyBtn.classList.remove('copied');
+  modal.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeGemModal() {
+  document.getElementById('gemModal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function copyGemModal() {
+  const text = document.getElementById('gemModalBody').textContent;
+  const btn = document.getElementById('gemModalCopyBtn');
+  navigator.clipboard.writeText(text).then(() => {
+    btn.textContent = '✓ Copiado!';
+    btn.classList.add('copied');
+    setTimeout(() => {
+      btn.textContent = '📋 Copiar instrução';
+      btn.classList.remove('copied');
+    }, 2500);
+  });
+}
+
+// ─── MENU HAMBURGER ───
 function toggleDrawer() {
   const btn = document.getElementById('hamburgerBtn');
   const drawer = document.getElementById('navDrawer');

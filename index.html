@@ -63,8 +63,9 @@ body {
   font-family: 'DM Sans', sans-serif;
   background: var(--bg);
   color: var(--text);
-  line-height: 1.7;
+  line-height: 1.8;
   overflow-x: hidden;
+  font-size: 18px;
 }
 
 /* ─── HERO ─── */
@@ -124,10 +125,11 @@ body {
 }
 
 .hero p {
-  font-size: 1.15em;
+  font-size: 1.2em;
   color: var(--text-dim);
-  max-width: 640px;
+  max-width: 680px;
   margin-bottom: 48px;
+  line-height: 1.9;
 }
 
 .hero-agents {
@@ -142,9 +144,9 @@ body {
   display: flex;
   align-items: center;
   gap: 8px;
-  padding: 10px 18px;
+  padding: 12px 20px;
   border-radius: 100px;
-  font-size: 0.85em;
+  font-size: 1em;
   font-weight: 500;
   background: var(--surface2);
   border: 1px solid var(--border);
@@ -191,9 +193,9 @@ body {
 }
 
 .section-label {
-  font-size: 0.75em;
+  font-size: 0.85em;
   font-weight: 700;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--gold);
   margin-bottom: 16px;
@@ -209,9 +211,10 @@ body {
 
 .section-sub {
   color: var(--text-dim);
-  font-size: 1.05em;
-  max-width: 620px;
+  font-size: 1.15em;
+  max-width: 680px;
   margin-bottom: 48px;
+  line-height: 1.9;
 }
 
 .dores-grid {
@@ -257,7 +260,7 @@ body {
   line-height: 1;
   margin-bottom: 8px;
 }
-.dor-desc { color: var(--text-dim); font-size: 0.9em; }
+.dor-desc { color: var(--text-dim); font-size: 1em; line-height: 1.8; }
 
 /* ─── AGENT CARD ─── */
 .agents-section {
@@ -314,9 +317,10 @@ body {
 }
 
 .agent-tagline {
-  font-size: 1em;
+  font-size: 1.05em;
   color: var(--text-dim);
-  margin-top: 4px;
+  margin-top: 6px;
+  line-height: 1.6;
 }
 
 .agent-status {
@@ -402,8 +406,9 @@ body {
 }
 
 .feature-text {
-  font-size: 0.9em;
+  font-size: 1em;
   color: var(--text-dim);
+  line-height: 1.8;
 }
 
 .feature-text strong { color: var(--text); }
@@ -482,8 +487,8 @@ body {
 .instructions-body {
   padding: 32px 28px;
   font-family: 'DM Mono', monospace;
-  font-size: 0.82em;
-  line-height: 1.9;
+  font-size: 0.92em;
+  line-height: 2.0;
   color: #334155;
   white-space: pre-wrap;
   word-break: break-word;
@@ -540,14 +545,14 @@ body {
 
 .step-title {
   font-weight: 700;
-  font-size: 0.95em;
+  font-size: 1.05em;
   color: var(--text);
 }
 
 .step-desc {
-  font-size: 0.85em;
+  font-size: 1em;
   color: var(--text-dim);
-  line-height: 1.6;
+  line-height: 1.8;
 }
 
 /* ─── DIVIDERS ─── */
@@ -636,9 +641,9 @@ footer strong { color: var(--text-dim); }
 .nav-link {
   text-decoration: none;
   color: var(--text-muted);
-  font-size: 0.75em;
-  font-weight: 500;
-  padding: 5px 10px;
+  font-size: 0.88em;
+  font-weight: 600;
+  padding: 7px 12px;
   border-radius: 8px;
   transition: all 0.2s;
   white-space: nowrap;
@@ -713,10 +718,10 @@ footer strong { color: var(--text-dim); }
 }
 
 .nav-drawer-label {
-  font-size: 0.65em;
+  font-size: 0.78em;
   font-weight: 700;
   color: var(--text-muted);
-  letter-spacing: 0.12em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   padding: 16px 12px 6px;
   display: block;
@@ -726,11 +731,11 @@ footer strong { color: var(--text-dim); }
   display: flex;
   align-items: center;
   gap: 10px;
-  padding: 12px 14px;
+  padding: 14px 16px;
   border-radius: 10px;
   text-decoration: none;
   color: var(--text-dim);
-  font-size: 0.9em;
+  font-size: 1em;
   font-weight: 500;
   transition: all 0.2s;
 }
@@ -1095,14 +1100,6 @@ footer strong { color: var(--text-dim); }
     <a href="#assistentes-section" class="nav-link" style="color:#a0720a;font-weight:700;background:#fdf8f0;">🤖 Assistentes IA</a>
     <a href="#redes-section" class="nav-link" style="color:#c0245c;font-weight:700;background:#fff0f6;">📱 Redes Sociais</a>
     <a href="#lgpd-section" class="nav-link" style="color:#0f766e;font-weight:700;background:#f0fdf9;">⚖️ LGPD</a>
-    <span style="width:1px;height:20px;background:#dde2ef;margin:0 4px;display:inline-block;"></span>
-    <span style="font-size:0.68em;font-weight:700;color:#9ca3af;letter-spacing:0.08em;text-transform:uppercase;padding:0 6px;">Agentes</span>
-    <a href="#agent-1" class="nav-link">📧 LeadLovers</a>
-    <a href="#agent-2" class="nav-link">🌐 WordPress</a>
-    <a href="#agent-3" class="nav-link">📊 Marketing</a>
-    <a href="#agent-4" class="nav-link">📱 Social Media</a>
-    <a href="#agent-5" class="nav-link">🎬 Vídeo</a>
-    <a href="#agent-6" class="nav-link" style="color:#0f766e;">🛡️ Gem LGPD</a>
   </div>
 
   <!-- HAMBURGER BUTTON (mobile) -->
@@ -4314,9 +4311,9 @@ FIM DAS INSTRUÇÕES — AGENTE 06 LGPD
 
 <footer>
   <img src="https://ecolabs.com.br/eCollabs%20-%20Logo.png" alt="eCollabs" style="height:40px;width:auto;margin-bottom:16px;opacity:0.7;">
-  <p style="margin-bottom:8px; font-family:'Playfair Display',serif; font-size:1.2em; color:var(--text-dim)">Assistentes IA Gemini · FATRI 2026</p>
+  <p style="margin-bottom:8px; font-family:'Playfair Display',serif; font-size:1.2em; color:var(--text-dim)">Assistentes Gemini · FATRI 2026</p>
   <p>Solução de Inteligência Artificial aplicada à transformação digital organizacional</p>
-  <p style="margin-top:8px">Desenvolvido por <strong>eCollabs</strong> · Consultoria Digital · Christian Rodrigues · 2026</p>
+  <p style="margin-top:8px">Desenvolvido por <strong>eCollabs</strong> · Consultoria Digital · Christian Queiros · 2026</p>
 </footer>
 
 <!-- ════ MODAL INSTRUÇÕES GEM ════ -->
